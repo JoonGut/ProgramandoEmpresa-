@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EXIDES GAME</string>
+    <string name="welcome_message">Bienvenido al Juego de Preguntas EXIDES GAME</string>
+    <string name="comodin_description">Comodín para eliminar dos respuestas incorrectas</string>
+    <string name="nube_explota_description">Animación de nube explotando</string>
+    <!-- Asegúrate de que no haya duplicados -->
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <item
+        android:id="@+id/menu_tema"
+        android:title="Tema"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/tema_historia"
+                android:title="Historia" />
+            <item
+                android:id="@+id/tema_ciencia"
+                android:title="Ciencia" />
+            <item
+                android:id="@+id/tema_geografia"
+                android:title="Geografía"
+                android:value="Geografia"/>
+            <item
+                android:id="@+id/tema_cine"
+                android:title="Cine" />
+            <item
+                android:id="@+id/tema_leyenda"
+                android:title="Leyenda" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_dificultad"
+        android:title="Dificultad"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/dificultad_facil"
+                android:title="Fácil" />
+            <item
+                android:id="@+id/dificultad_medio"
+                android:title="Medio" />
+            <item
+                android:id="@+id/dificultad_dificil"
+                android:title="Difícil" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_cerrar"
+        android:icon="@mipmap/apagado"
+        android:title="Cerrar"
+        app:showAsAction="always" />
+</menu> 

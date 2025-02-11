@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="100"
+    android:fromXDelta="0"
+    android:toXDelta="10"
+    android:repeatCount="5"
+    android:repeatMode="reverse" />
+
+    <!--
+        Animación de vibración horizontal utilizada en QuestionActivity.java:
+
+        1. En checkAnswer():
+           - Se aplica cuando el usuario selecciona una respuesta incorrecta
+           - La opción seleccionada vibra 5 veces para indicar el error
+
+        2. En vibrateIncorrectOptions():
+           - Se usa cuando el jugador activa el comodín
+           - Se modifica repeatCount a INFINITE
+           - Las opciones incorrectas vibran hasta que el usuario las desliza
+    -->

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    Define los arrays de opciones utilizados en los Spinners del juego.
+    
+    Se utiliza en:
+    1. RegisterPlayerActivity: 
+       - Para mostrar las opciones de temas y dificultades disponibles
+       - Los Spinners cargan estas opciones para que el usuario seleccione
+         al registrarse o iniciar una nueva partida
+    
+    Contiene dos arrays principales:
+    - tema_opciones: Lista de temas disponibles para jugar
+    - dificultad_opciones: Niveles de dificultad del juego
+-->
+<resources>
+    <!-- Lista de temas disponibles para jugar -->
+    <string-array name="tema_opciones">
+        <item>Historia</item>
+        <item>Ciencia</item>
+        <item>Deportes</item>
+        <item>Leyenda</item>
+        <!-- Otros temas -->
+    </string-array>
+
+    <!-- Niveles de dificultad disponibles -->
+    <string-array name="dificultad_opciones">
+        <item>Fácil</item>
+        <item>Medio</item>
+        <item>Difícil</item>
+    </string-array>
+</resources> 

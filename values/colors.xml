@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="sky_blue">#87CEEB</color>
+
+    <!-- Colores del tema -->
+    <color name="primaryColor">#87CEEB</color>
+    <color name="primaryDarkColor">#5D9EB3</color>
+    <color name="onPrimaryColor">@color/white</color>
+    <color name="secondaryColor">@color/teal_200</color>
+    <color name="secondaryDarkColor">@color/teal_700</color>
+    <color name="onSecondaryColor">@color/black</color>
+</resources>

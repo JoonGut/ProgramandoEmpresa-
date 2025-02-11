@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/historia_fondo"
+    android:padding="16dp">
+
+    <!-- Nombre del Jugador -->
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif"
+        android:shadowColor="#323232"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="10"
+        android:text="Registro de Jugador"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvNombreJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Campo nombre del jugador"
+        app:cardBackgroundColor="#80FFFFFF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo">
+
+        <EditText
+            android:id="@+id/etNombreJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="Nombre del Jugador"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#80000000"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Contraseña -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvContraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Campo contraseña"
+        app:cardBackgroundColor="#80FFFFFF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvNombreJugador">
+
+        <EditText
+            android:id="@+id/etContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#80000000"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Confirmar Contraseña -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvConfirContraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Campo confirmar contraseña"
+        app:cardBackgroundColor="#80FFFFFF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvContraseña">
+
+        <EditText
+            android:id="@+id/etConfirContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="Confirmar Contraseña"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#80000000"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Título para Jugador Existente -->
+
+    <!-- Campo para nombre del jugador existente -->
+
+    <!-- Campo para contraseña del jugador existente -->
+
+    <Button
+        android:id="@+id/btRegistrar"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="146dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_white_frame"
+        android:text="Registrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvConfirContraseña" />
+
+    <TextView
+        android:id="@+id/tvJugadorExistente"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="201dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="44dp"
+        android:text="Jugador Existente"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btRegistrar" />
+
+    <!-- Reemplazar editTextExistingPlayerName con CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvNombreJugadorExistente"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="Campo nombre jugador existente"
+        app:cardBackgroundColor="#80FFFFFF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvJugadorExistente">
+
+        <EditText
+            android:id="@+id/etNombreJugadorExistente"
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="start|center_vertical"
+            android:hint="Nombre del Jugador"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#80000000"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Reemplazar editTextExistingPassword con CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvContraseñaExistente"
+        android:layout_width="230dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="Campo contraseña jugador existente"
+        app:cardBackgroundColor="#80FFFFFF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvNombreJugadorExistente">
+
+        <EditText
+            android:id="@+id/etContraseñaExistente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="start|center_vertical"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textColorHint="#80000000"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Botón para aceptar jugador existente -->
+
+    <!-- Botón para volver a la pantalla principal -->
+
+    <Button
+        android:id="@+id/btAceptarJugadorExistente"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_white_frame"
+        android:text="Aceptar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvContraseñaExistente" />
+
+    <Button
+        android:id="@+id/btVolver"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:text="Volver"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btAceptarJugadorExistente" />
+
+    <TextView
+        android:id="@+id/currentPlayerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:shadowColor="#323232"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="10"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="5dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout> 

@@ -1,0 +1,145 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+	<record id="comandas.comanda_tree" model="ir.ui.view">
+		<field name="name">comandas.comanda.tree</field>
+		<field name="model">comandas.comanda</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="nombre" string="Nombre de la Comanda"/>
+				<field name="mesa_id" string="ID Mesa"/>
+				<field name="cantidad_articulos" string="Cant.Articulos"/>
+				<field name="camarero_id" string="ID Camareros"/>
+				<field name="total" string="Total.comandas"/>
+				<field name="fecha_hora" string="Fecha hora"/>
+			</tree>
+		</field>
+	</record>
+	<record id="comandas.comanda_form" model="ir.ui.view">
+		<field name="name">comandas.comanda.form</field>
+		<field name="model">comandas.comanda</field>
+		<field name="arch" type="xml">
+			<form string="Comanda">
+				<sheet>
+					<group>
+						<field name="nombre" string="Nombre de la Comanda" required="True"/>
+						<field name="mesa_id" string="Mesa" required="True"/>
+						<field name="cantidad_articulos" string="Cantidad de Artículos" required="True"/>
+						<field name="camarero_id" string="Camarero" required="True"/>
+						<field name="total" string="Total" readonly="True"/>
+					</group>
+					<group>
+						<field name="fecha_hora" string="Fecha y Hora" required="True"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="comandas.mesa_tree" model="ir.ui.view">
+		<field name="name">comandas.mesa.tree</field>
+		<field name="model">comandas.mesa</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="id_mesa" string="ID Mesa"/>
+				<field name="nombre" string="Nombre de la Mesa"/>
+				<field name="estado" string="Estado de la Mesa"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="comandas.mesa_form" model="ir.ui.view">
+		<field name="name">comandas.mesa.form</field>
+		<field name="model">comandas.mesa</field>
+		<field name="arch" type="xml">
+			<form string="Mesa">
+				<sheet>
+					<group>
+						<field name="id_mesa" string="ID Mesa" required="True" readonly="1"/>
+						<field name="nombre" string="Nombre de la Mesa" required="True"/>
+						<field name="estado" string="Estado" required="True"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record id="comandas.camarero_tree" model="ir.ui.view">
+		<field name="name">comandas.camarero.tree</field>
+		<field name="model">comandas.camarero</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="nombre" string="Nombre del Camarero"/>
+				<field name="telefono" string="Número de Teléfono"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="comandas.camarero_form" model="ir.ui.view">
+		<field name="name">comandas.camarero.form</field>
+		<field name="model">comandas.camarero</field>
+		<field name="arch" type="xml">
+			<form string="Camarero">
+				<sheet>
+					<group>
+						<field name="id_camarero" string="ID Camarero" readonly="1"/>
+						<field name="nombre" string="Nombre del Camarero" required="True"/>
+						<field name="telefono" string="Número de Teléfono"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+    <record id="view_comanda_search" model="ir.ui.view">
+        <field name="name">comanda.search</field>
+        <field name="model">comandas.comanda</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre" string="Número de Comanda"/>
+                <field name="mesa_id" string="Mesa"/>
+                <field name="camarero_id" string="Camarero"/>
+                <field name="fecha_hora" string="Fecha y Hora"/>
+                
+                <!-- Filtro para agrupar por hora -->
+                <group string="Agrupar Por">
+                    <filter name="group_by_hora" string="Hora" domain="[]" context="{'group_by': 'fecha_hora'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+
+
+    <!-- actions opening views on models -->
+	<record id="comandas.comanda_action" model="ir.actions.act_window">
+		<field name="name">Gestión de Comandas</field>
+		<field name="res_model">comandas.comanda</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="comandas.mesa_action" model="ir.actions.act_window">
+		<field name="name">Gestión de Mesas</field>
+		<field name="res_model">comandas.mesa</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+		<record id="comandas.camarero_action" model="ir.actions.act_window">
+		<field name="name">Gestión de Camareros</field>
+		<field name="res_model">comandas.camarero</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+    <!-- Top menu item -->
+	<menuitem id="comandas_menu" name="Gestión de Comandas"/>
+
+	<!-- Submenú: Comandas -->
+	<menuitem id="comandas_comanda_menu" name="Comandas" parent="comandas_menu" action="comandas.comanda_action" />
+
+	<!-- Submenú: Mesas -->
+	<menuitem id="comandas_mesa_menu" name="Mesas" parent="comandas_menu"  action="comandas.mesa_action" />
+
+	<!-- Submenú: Camareros -->
+	<menuitem id="comandas_camarero_menu"  name="Camareros" parent="comandas_menu" action="comandas.camarero_action" />
+
+  </data>
+</odoo>

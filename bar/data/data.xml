@@ -1,0 +1,43 @@
+<odoo>
+    <!-- Definición de proveedores -->
+    <record id="proveedor_1" model="bar.proveedor">
+        <field name="name">Proveedor A</field>
+        <field name="telefono">123456789</field>
+        <field name="direccion">Calle Ficticia 123</field>
+        <field name="email">Luis@ejemplo.com</field>
+        <field name="tipo_producto">bebidas</field>
+        <field name="fecha_registro">2025-02-10</field>
+        <field name="historial_pedidos">Historial de pedidos del proveedor A</field>
+    </record>
+
+    <record id="proveedor_2" model="bar.proveedor">
+        <field name="name">Proveedor B</field>
+        <field name="telefono">987654321</field>
+        <field name="direccion">Avenida Ejemplo 456</field>
+        <field name="email">Paco@ejemplo.com</field>
+        <field name="tipo_producto">comida</field>
+        <field name="fecha_registro">2025-02-10</field>
+        <field name="historial_pedidos">Historial de pedidos del proveedor B</field>
+    </record>
+
+    <!-- Definición de pedidos de proveedores -->
+    <record id="pedido_1" model="bar.pedido">
+        <field name="name">Pedido 001</field>
+        <field name="fecha_pedido">2025-02-10 14:00:00</field>
+        <field name="productos">Cerveza, Vino</field>
+        <field name="cantidad">50</field>
+        <field name="precio_total">150.0</field>
+        <field name="estado">pendiente</field>
+        <field name="proveedor_id" ref="proveedor_1"/>
+    </record>
+
+    <record id="pedido_2" model="bar.pedido">
+        <field name="name">Pedido 002</field>
+        <field name="fecha_pedido">2025-02-11 10:30:00</field>
+        <field name="productos">Pizza, Pasta</field>
+        <field name="cantidad">30</field>
+        <field name="precio_total">200.0</field>
+        <field name="estado">enviado</field>
+        <field name="proveedor_id" ref="proveedor_2"/>
+    </record>
+</odoo>

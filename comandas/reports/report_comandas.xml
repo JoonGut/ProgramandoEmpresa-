@@ -1,0 +1,62 @@
+<odoo>
+<data>
+    <!-- Plantilla del informe con nuevo ID -->
+    <template id="informe_comandas_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="comanda">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
+                        <h2 style="color: #2196F3; text-align: center; border-bottom: 2px solid #2196F3; padding-bottom: 5px;" t-field="comanda.nombre"/>
+                        
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Mesa:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="comanda.mesa_id.nombre"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Cantidad de Artículos:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="comanda.cantidad_articulos"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Total:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="comanda.total"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Fecha y Hora:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="comanda.fecha_hora"/></td>
+                            </tr>
+                        </table>
+                        
+                        <h3 style="color: #2196F3; margin-top: 20px;">Información del Camarero</h3>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Nombre:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="comanda.camarero_id.nombre"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Teléfono:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="comanda.camarero_id.telefono"/></td>
+                            </tr>
+                        </table>
+                        
+                        <div style="text-align: center; margin-top: 20px; font-style: italic; color: #555;">
+                            <p>Generado automáticamente por el sistema</p>
+                        </div>
+                    </div>                    
+                </t>
+            </t>
+        </t>
+    </template>   
+
+    <!-- Acción del informe con nuevo ID -->
+    <record model="ir.actions.report" id="comandas.informe_comandas_action">
+        <field name="name">Informe de Comandas</field>
+        <field name="model">comandas.comanda</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">comandas.informe_comandas_template</field>
+        <field name="report_file">comandas.informe_comandas_template</field>
+        <field name="binding_model_id" ref="model_comandas_comanda"/>
+        <field name="binding_type">report</field>
+    </record>
+</data>
+</odoo>

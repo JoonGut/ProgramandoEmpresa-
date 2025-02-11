@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_comandas_comanda,access_comandas_comanda,model_comandas_comanda,base.group_user,1,1,1,1
+access_comandas_mesa,access_comandas_mesa,model_comandas_mesa,base.group_user,1,1,1,1
+access_comandas_camarero,access_comandas_camarero,model_comandas_camarero,base.group_user,1,1,1,1
+

@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+        <!-- Plantilla del informe -->
+        <template id="informe_prevision">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="prevision">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2 style="text-align: center; color: #007BFF; margin-bottom: 20px;" t-esc="prevision.name"/>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                                <thead>
+                                    <tr style="background-color: #f2f2f2;">
+                                        <th style="padding: 10px; text-align: left;">Campo</th>
+                                        <th style="padding: 10px; text-align: left;">Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Ciudad</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;" t-esc="prevision.ciudad"/>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Temperatura Máxima</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><t t-esc="prevision.temp_max"/> °C</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Temperatura Mínima</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><t t-esc="prevision.temp_min"/> °C</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Promedio de Temperaturas</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><t t-esc="prevision.promedio_temperaturas"/> °C</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Humedad</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><t t-esc="prevision.humedad"/> %</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Precipitaciones</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><t t-esc="prevision.precipitaciones"/> mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Velocidad del Viento</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;"><t t-esc="prevision.velocidad_viento"/> km/h</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Estado del Tiempo</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;" t-esc="prevision.estado_tiempo"/>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #ddd;">Fecha de la Previsión</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd;" t-esc="prevision.fecha_prevision"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <p style="color: #555;">Informe generado automáticamente por el sistema de previsión.</p>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!-- Acción del informe -->
+        <record model="ir.actions.report" id="tiempo_previsiones_act_report">
+            <field name="name">Informe Previsión Atmosférica</field>
+            <field name="model">tiempo.previsiones</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">tiempo.informe_prevision</field>
+            <field name="binding_model_id" ref="model_tiempo_previsiones"/>
+            <field name="binding_type">report</field>
+
+        </record>
+    </data>
+</odoo>

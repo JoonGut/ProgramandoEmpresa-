@@ -1,0 +1,41 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Registro de mesas -->
+        <record id="comanda001" model="comandas.mesa">
+            <field name="id_mesa">MESA01</field>
+            <field name="nombre">Mesa 1</field>
+            <field name="estado">ocupada</field>
+        </record>
+        <record id="comandas002" model="comandas.mesa">
+            <field name="id_mesa">MESA02</field>
+            <field name="nombre">Mesa 2</field>
+            <field name="estado">ocupada</field>
+        </record>
+        <record id="comandas003" model="comandas.mesa">
+            <field name="id_mesa">MESA03</field>
+            <field name="nombre">Mesa 3</field>
+            <field name="estado">libre</field>
+        </record>
+
+        <!-- Registro de camareros -->
+        <record id="comandas_camarero_1" model="comandas.camarero">
+            <field name="id_camarero">CAM01</field>
+            <field name="nombre">Camarero 1</field>
+            <field name="telefono">123456789</field>
+        </record>
+
+        <!-- Registro de comandas -->
+        <record id="comandas_comanda_1" model="comandas.comanda">
+            <field name="nombre">Comanda1</field>
+            <field name="mesa_id" ref="comanda001"/>
+            <field name="cantidad_articulos">4.0</field>
+            <field name="camarero_id" ref="comandas_camarero_1"/>
+        </record>
+        <record id="comandas_comanda_2" model="comandas.comanda">
+            <field name="nombre">Comanda2</field>
+            <field name="mesa_id" ref="comandas002"/>
+            <field name="cantidad_articulos">3.0</field>
+            <field name="camarero_id" ref="comandas_camarero_1"/>
+        </record>
+    </data>
+</odoo>

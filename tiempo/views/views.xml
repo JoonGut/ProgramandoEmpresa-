@@ -1,0 +1,128 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+	<record id="tiempo.previsiones_tree" model="ir.ui.view">
+		<field name="name">tiempo.previsiones.tree</field>
+		<field name="model">tiempo.previsiones</field>
+		<field name="arch" type="xml">
+			<tree decoration-danger="temp_max &lt; 5 or temp_max &gt; 30">
+				<field name="name" string="Nombre de la Previsión"/>
+				<field name="ciudad" string="Ciudad"/>
+				<field name="temp_max" string="Temp. Máx"/>
+				<field name="temp_min" string="Temp. Mín"/>
+				<field name="promedio_temperaturas" string="Promedio Temp."/>
+				<field name="estado_tiempo" string="Estado del Tiempo"/>
+				<field name="fecha_prevision" string="Fecha"/>
+			</tree>
+		</field>
+	</record>
+	<record id="tiempo.previsiones_form" model="ir.ui.view">
+	  <field name="name">tiempo.previsiones.form</field>
+	  <field name="model">tiempo.previsiones</field>
+	  <field name="arch" type="xml">
+		<form>
+		  <sheet>
+			<group colspan="2">
+			  <separator string="Información General"/>
+			  <field name="name" string="Nombre de la Previsión"/>
+			  <field name="ciudad" string="Ciudad"/>
+			  <field name="fecha_prevision" string="Fecha de la Previsión"/>
+			</group>
+
+			<group colspan="2">
+			  <separator string="Datos de Temperaturas"/>
+			  <field name="temp_max" string="Temperatura Máxima"/>
+			  <field name="temp_min" string="Temperatura Mínima"/>
+			  <field name="promedio_temperaturas" string="Promedio de Temperaturas" readonly="1"/>
+			</group>
+
+			<group colspan="2">
+			  <separator string="Condiciones Atmosféricas"/>
+			  <field name="estado_tiempo" string="Estado del Tiempo"/>
+			  <field name="precipitaciones" string="Precipitaciones (mm)"/>
+			  <field name="velocidad_viento" string="Velocidad del Viento (km/h)"/>
+			  <field name="humedad" string="Humedad (%)"/>
+			</group>
+
+			<group>
+			  <separator string="Alertas"/>
+			  <field name="alertas_ids" widget="one2many_list" string="Alertas Meteorológicas"/>
+			</group>
+		  </sheet>
+		</form>
+	  </field>
+	</record>
+	
+	<record model="ir.ui.view" id="tiempo.alertas_tree">
+		<field name="name">tiempo.alertas.tree</field>
+		<field name="model">tiempo.alertas</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" string="Alerta"/>
+				<field name="descripcion" string="Descripción"/>
+				<field name="prevision_id" string="Previsión Relacionada"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="tiempo.alertas_form">
+		<field name="name">tiempo.alertas.form</field>
+		<field name="model">tiempo.alertas</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group string="Información de la Alerta" colspan="2">
+						<field name="name" string="Alerta" required="1"/>
+						<field name="descripcion" string="Descripción"/>
+					</group>
+					<group string="Previsión Relacionada">
+						<field name="prevision_id" string="Previsión Atmosférica"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="tiempo.previsiones_search">
+		<field name="name">tiempo.previsiones.search</field>
+		<field name="model">tiempo.previsiones</field>
+		<field name="arch" type="xml">
+			<search>
+				<!-- Campos para búsqueda directa -->
+				<field name="name" string="Nombre de la Previsión"/>
+				<field name="ciudad" string="Ciudad"/>
+
+				<!-- Filtros personalizados -->
+				<filter name="alta_temperatura" string="Alta Temperatura" domain="[('temp_max', '&gt;=', 35)]"/>
+				<filter name="baja_temperatura" string="Baja Temperatura" domain="[('temp_min', '&lt;=', 5)]"/>
+				<filter name="alta_humedad" string="Alta Humedad" domain="[('humedad', '&gt;=', 80)]"/>
+				<filter name="lluvias_importantes" string="Lluvias Importantes" domain="[('precipitaciones', '&gt;=', 50)]"/>
+
+				<!-- Agrupaciones -->
+				<filter name="group_by_ciudad" string="Agrupar por Ciudad" context="{'group_by': 'ciudad'}"/>
+				<filter name="group_by_fecha" string="Agrupar por Fecha" context="{'group_by': 'fecha_prevision'}"/>
+			</search>
+		</field>
+	</record>
+
+	
+	<record id="tiempo.previsiones_action" model="ir.actions.act_window">
+		<field name="name">Gestión de Previsiones Atmosféricas</field>
+		<field name="res_model">tiempo.previsiones</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="tiempo.alertas_action" model="ir.actions.act_window">
+		<field name="name">Gestión de Alertas Meteorológicas</field>
+		<field name="res_model">tiempo.alertas</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	
+
+	<menuitem id="tiempo_menu" name="Gestión del Tiempo"/>
+
+	<menuitem id="tiempo_previsiones_menu" name="Previsiones" parent="tiempo_menu" action="tiempo.previsiones_action"/>
+
+	<menuitem id="tiempo_alertas_menu" name="Alertas" parent="tiempo_menu" action="tiempo.alertas_action"/>
+
+
+  </data>
+</odoo>

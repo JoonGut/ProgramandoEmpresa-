@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bar_proveedor,access_bar_proveedor,model_bar_proveedor,base.group_user,1,1,1,1
+access_bar_pedido,access_bar_pedido,model_bar_pedido,base.group_user,1,1,1,1

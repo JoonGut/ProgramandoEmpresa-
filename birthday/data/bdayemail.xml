@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+
+        <!-- Definición de la plantilla de correo de cumpleaños -->
+        <record id="bdayemail" model="mail.template">
+            <field name="name">Happy Birthday</field>
+            <field name="model_id" ref="birthday.model_empleado_birthday"/> 
+            <field name="subject">¡Happy Birthday, ${object.empleado_id.name}!</field>
+            <field name="email_from">${(object.empleado_id.company_id.email or 'info@tuempresa.com')|safe}</field> <!-- Enviar desde el correo de la empresa -->
+            <field name="email_to">${(object.empleado_id.work_email or 'admin@tuempresa.com')|safe}</field> <!-- Correo del empleado o uno por defecto -->
+            <field name="body_html">
+                <![CDATA[
+					&lt;p&gt;Hola ${object.empleado_id.name},&lt;/p&gt;  
+					&lt;p&gt;Te deseamos un muy feliz cumpleaños de parte de todo el equipo.&lt;/p&gt;
+					&lt;p&gt;¡Esperamos que tengas un excelente día!&lt;/p&gt;
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

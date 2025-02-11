@@ -1,0 +1,65 @@
+<data>  
+    <template id="informe_pedidos">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="pedido">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
+                        <h2 style="color: #2196F3; text-align: center; border-bottom: 2px solid #2196F3; padding-bottom: 5px;" t-field="pedido.name"/>
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Fecha de Pedido:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="pedido.fecha_pedido"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Productos:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="pedido.productos"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Cantidad:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="pedido.cantidad"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Precio Total:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="pedido.precio_total"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Estado:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="pedido.estado"/></td>
+                            </tr>
+                        </table>
+                        
+                        <h3 style="color: #2196F3; margin-top: 20px;">Información del Proveedor</h3>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Proveedor:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="pedido.proveedor_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Teléfono:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="pedido.proveedor_id.telefono"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Email:</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><span t-field="pedido.proveedor_id.email"/></td>
+                            </tr>
+                        </table>
+                        
+                        <div style="text-align: center; margin-top: 20px; font-style: italic; color: #555;">
+                            <p>Generado automáticamente por el sistema</p>
+                        </div>
+                    </div>                    
+                </t>
+            </t>
+        </t>
+    </template>   
+
+    <record model="ir.actions.report" id="bar.pedido_act_report">
+        <field name="name">Informe de Pedidos</field>
+        <field name="model">bar.pedido</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bar.informe_pedidos</field>
+        <field name="report_file">bar.informe_pedidos</field>
+        <field name="binding_model_id" ref="model_bar_pedido"/>
+        <field name="binding_type">report</field>
+    </record>
+</data>

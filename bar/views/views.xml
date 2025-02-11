@@ -1,0 +1,105 @@
+<odoo>
+  <data>
+	<record id="view_proveedor_tree" model="ir.ui.view">
+        <field name="name">bar.proveedor.tree</field>
+        <field name="model">bar.proveedor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="telefono"/>
+                <field name="tipo_producto"/>
+				<field name="fecha_registro"/>
+            </tree>
+        </field>
+    </record>   
+
+    <record id="view_proveedor_form" model="ir.ui.view">
+        <field name="name">bar.proveedor.form</field>
+        <field name="model">bar.proveedor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="telefono"/>
+                        <field name="direccion"/>
+                        <field name="email"/>
+                        <field name="tipo_producto"/>
+                        <field name="fecha_registro"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="view_proveedor_search" model="ir.ui.view">
+        <field name="name">bar.proveedor.search</field>
+        <field name="model">bar.proveedor</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Nombre"/>
+                <field name="telefono" string="Teléfono"/>
+                <field name="direccion" string="Dirección"/>
+                <field name="email" string="Email"/>
+                <field name="tipo_producto" string="Tipo de Producto"/>
+                <filter name="bebidas" string="Bebidas" domain="[('tipo_producto', '=', 'bebidas')]"/>
+                <filter name="comida" string="Comida" domain="[('tipo_producto', '=', 'comida')]"/>
+            </search>
+        </field>
+    </record>
+
+
+
+
+
+	<record id="view_pedido_tree" model="ir.ui.view">
+        <field name="name">bar.pedido.tree</field>
+        <field name="model">bar.pedido</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="fecha_pedido"/>
+                <field name="estado"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pedido_form" model="ir.ui.view">
+        <field name="name">bar.pedido.form</field>
+        <field name="model">bar.pedido</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="fecha_pedido"/>
+                        <field name="productos"/>
+                        <field name="cantidad"/>
+                        <field name="precio_total"/>
+                        <field name="estado"/>
+                        <field name="proveedor_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record id="action_proveedor" model="ir.actions.act_window">
+        <field name="name">Proveedores</field>
+        <field name="res_model">bar.proveedor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_pedido" model="ir.actions.act_window">
+        <field name="name">Pedidos</field>
+        <field name="res_model">bar.pedido</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_bar_root" name="Gestión de Proveedores" sequence="1"/>
+    <menuitem id="menu_proveedor" name="Proveedores" parent="menu_bar_root" action="action_proveedor"/>
+    <menuitem id="menu_pedido" name="Pedidos" parent="menu_bar_root" action="action_pedido"/>
+  </data>
+</odoo>

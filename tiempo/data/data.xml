@@ -1,0 +1,57 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Registro de previsiones atmosféricas -->
+        <record model="tiempo.previsiones">
+            <field name="name">Previsión Soleada Madrid</field>
+            <field name="ciudad">Madrid</field>
+            <field name="temp_max">25</field>
+            <field name="temp_min">20</field>
+            <field name="humedad">65</field>
+            <field name="velocidad_viento">15</field>
+            <field name="estado_tiempo">Soleado</field>
+            <field name="fecha_prevision">2025-01-15</field>
+        </record>
+        <record model="tiempo.previsiones">
+            <field name="name">Previsión Nublada Barcelona</field>
+            <field name="ciudad">Barcelona</field>
+            <field name="temp_max">18</field>
+            <field name="temp_min">15</field>
+            <field name="humedad">80</field>
+            <field name="precipitaciones">2.5</field>
+            <field name="velocidad_viento">10</field>
+            <field name="estado_tiempo">Nublado</field>
+            <field name="fecha_prevision">2025-03-12</field>
+        </record>
+        <record model="tiempo.previsiones">
+            <field name="name">Previsión Lluviosa Bilbao</field>
+            <field name="ciudad">Bilbao</field>
+            <field name="temp_max">-1</field>
+            <field name="temp_min">-3</field>
+            <field name="humedad">95</field>
+            <field name="precipitaciones">50</field>
+            <field name="velocidad_viento">30</field>
+            <field name="estado_tiempo">Lluvioso</field>
+            <field name="fecha_prevision">2025-02-03</field>
+        </record>
+        <record model="tiempo.previsiones">
+            <field name="name">Previsión Soleada Sevilla</field>
+            <field name="ciudad">Sevilla</field>
+            <field name="temp_max">36</field>
+            <field name="temp_min">30</field>
+            <field name="humedad">40</field>
+            <field name="velocidad_viento">5</field>
+            <field name="estado_tiempo">Soleado</field>
+            <field name="fecha_prevision">2024-06-05</field>
+        </record>
+        <record model="tiempo.previsiones">
+            <field name="name">Previsión Tormentosa Pamplona</field>
+            <field name="ciudad">Pamplona</field>
+            <field name="temp_max">0</field>
+            <field name="temp_min">-3</field>
+            <field name="humedad">85</field>
+            <field name="velocidad_viento">25</field>
+            <field name="estado_tiempo">Tormentoso</field>
+            <field name="fecha_prevision">2024-12-31</field>
+        </record>
+    </data>
+</odoo>

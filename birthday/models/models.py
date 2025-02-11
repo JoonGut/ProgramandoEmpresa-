@@ -2,8 +2,6 @@ import logging
 from datetime import datetime
 from odoo import models, fields, api
 
-_logger = logging.getLogger(__name__)
-
 class EmpleadoBirthday(models.Model):
     _name = 'birthday.empleado_birthday'  # Tu modelo propio
     _description = 'Mensaje de Cumpleaños'
@@ -44,8 +42,8 @@ class EmpleadoBirthday(models.Model):
         """ Envía un email de cumpleaños al empleado. """
         template = self.env.ref('birthday.bdayemail')
         if template:
-            email_from = empleado.company_id.email if empleado.company_id else 'info@tuempresa.com'
-            email_to = empleado.work_email if empleado.work_email else 'admin@tuempresa.com'
+            email_from = empleado.company_id.email 
+            email_to = empleado.work_email 
 
             try:
                 template.send_mail(empleado.id, force_send=True, email_values={
@@ -54,6 +52,4 @@ class EmpleadoBirthday(models.Model):
                     'object': empleado.name,
                     'author_id': self.env.user.partner_id.id,
                 })
-                _logger.info("Correo de cumpleaños enviado a %s", email_to)
-            except Exception as e:
-                _logger.error("Error al enviar el correo: %s", str(e))
+
